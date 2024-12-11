@@ -10,21 +10,21 @@
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                {{-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                     aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
+                    aria-label="Slide 3"></button> --}}
             </div>
             <div class="carousel-inner rounded rounded-5">
                 <div class="carousel-item active">
                     <img src="{{ asset('assets/img/icon/banner1.jpg') }}" class="d-block w-100" alt="...">
                 </div>
-                <div class="carousel-item">
+                {{-- <div class="carousel-item">
                     <img src="https://i.pinimg.com/736x/38/b9/d3/38b9d3c62a8d97701779106c95482b3e.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
                     <img src="https://i.pinimg.com/736x/5f/d3/67/5fd3675f7fa82c31a3a7d013623b227a.jpg" class="d-block w-100" alt="...">
-                </div>
+                </div> --}}
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                 data-bs-slide="prev">
