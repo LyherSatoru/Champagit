@@ -6,6 +6,7 @@ use App\Http\Controllers\Apps\QrController as QrController;
 use App\Http\Controllers\Discord\BuyRankController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\shop\ShopController;
+use App\Http\Controllers\about\AboutUsController;
 Route::get('/', function () {
     return view('home');
 });
@@ -50,6 +51,15 @@ Route::prefix('shop')->group(function () {
     // Route::get('/', [BuyRankController::class, 'index'])->name('dc');
     Route::resource('/', ShopController::class)->names('shop');
     Route::get('/receipt/{receipt_uuid}', [ShopController::class, 'receipt'])->name('shop.receipt');
+    // Route::get('/receipt/{receipt_uuid}', [ReceiptController::class, 'download'])->name('receipt.download');
+
+});
+
+// about us
+Route::prefix('about-us')->group(function () {
+    // Route::get('/', [BuyRankController::class, 'index'])->name('dc');
+    Route::resource('/', AboutUsController::class)->names('about');
+    // Route::get('/receipt/{receipt_uuid}', [ShopController::class, 'receipt'])->name('shop.receipt');
     // Route::get('/receipt/{receipt_uuid}', [ReceiptController::class, 'download'])->name('receipt.download');
 
 });

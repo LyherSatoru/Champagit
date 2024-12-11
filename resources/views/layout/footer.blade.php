@@ -29,7 +29,7 @@
                         <a href="#">Home</a>
                     </li>
                     <li>
-                        <a href="#">About us</a>
+                        <a href="{{ route('about.index') }}">About us</a>
                     </li>
                     <li>
                         <a href="#">Contact us</a>
@@ -41,13 +41,13 @@
             </div>
             <div class="col-12 py-4">
                 <ul class="social-icons p-0">
-                    <li><a href="https://www.tiktok.com" target="_blank" class="icon tiktok"><i class="fab fa-tiktok"></i></a></li>
-                    <li><a href="https://www.facebook.com" target="_blank" class="icon facebook"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="https://github.com" target="_blank" class="icon github"><i class="fab fa-github"></i></a></li>
-                    <li><a href="https://www.youtube.com" target="_blank" class="icon youtube"><i class="fab fa-youtube"></i></a></li>
-                    <li><a href="https://t.me" target="_blank" class="icon telegram"><i class="fab fa-telegram"></i></a></li>
-                    <li><a href="https://www.linkedin.com" target="_blank" class="icon linkedin"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="https://discord.com" target="_blank" class="icon discord"><i class="fab fa-discord"></i></a></li>
+                    <li><a href="https://www.tiktok.com/@yutu1313?_t=8s5UpLDadho&_r=1" target="_blank" class="icon tiktok"><i class="fab fa-tiktok"></i></a></li>
+                    <li><a href="https://facebook.com/profile.php?id=100083087438763" target="_blank" class="icon facebook"><i class="fab fa-facebook"></i></a></li>
+                    {{-- <li><a href="https://github.com" target="_blank" class="icon github"><i class="fab fa-github"></i></a></li> --}}
+                    <li><a href="https://www.youtube.com/@PotatoxYutu/videos" target="_blank" class="icon youtube"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="https://t.me/leenith13" target="_blank" class="icon telegram"><i class="fab fa-telegram"></i></a></li>
+                    {{-- <li><a href="https://www.linkedin.com" target="_blank" class="icon linkedin"><i class="fab fa-linkedin"></i></a></li> --}}
+                    <li><a href="https://discord.gg/rAPxVbu8Rz" target="_blank" class="icon discord"><i class="fab fa-discord"></i></a></li>
                   </ul>
                   
             </div>

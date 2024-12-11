@@ -2,6 +2,36 @@
 @section('link')
 @endsection
 @section('style')
+<style>
+    /* Position the toast at the top center of the screen */
+    #myToast {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1055;
+    }
+
+    /* Countdown border animation */
+    .toast .countdown {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        background-color: rgb(255, 0, 157);
+        width: 100%;
+        animation: countdown 5s linear forwards;
+    }
+
+    @keyframes countdown {
+        from {
+            width: 100%;
+        }
+        to {
+            width: 0%;
+        }
+    }
+</style>
 @endsection
 @section('container')
     <div class="container pt-3">
@@ -41,17 +71,26 @@
         {{-- card  --}}
 
         <div class="row ">
-         <div class="col-12">
-    <h3 class="fw-bold py-5 pb-4">Our Store &gt;</h3>
-</div>
-<div class="col-6 col-lg-3">
-    <a href="{{ route('shop.index') }}" class="text-decoration-none">
-        <div class="w-100 rounded rounded-5 overflow-hidden gd position-relative">
-            <img class="w-100 image-our-app" src="{{ asset('assets/img/shop/ps.jpg') }}" alt="Shop Image">
-            <h3 class="card-text py-2">Plot Rank</h3>
-        </div>
-    </a>
-</div>
+            <div class="col-12">
+                <h3 class="fw-bold py-5 pb-4">Our Store &gt;</h3>
+            </div>
+            <div class="col-6 col-lg-3">
+                <a href="{{ route('shop.index') }}" class="text-decoration-none">
+                    <div class="w-100 rounded rounded-5 overflow-hidden gd position-relative">
+                        <img class="w-100 image-our-app" src="{{ asset('assets/img/shop/ps.jpg') }}" alt="Shop Image">
+                        <h3 class="card-text py-2">Plot Rank</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-lg-3">
+                <a class="text-decoration-none" id="showToastBtn" style="cursor: pointer"
+                    data-bs-content="Coming Soon">
+                    <div class="w-100 rounded rounded-5 overflow-hidden gd position-relative">
+                        <img class="w-100 image-our-app" src="https://i.pinimg.com/736x/05/64/3b/05643b74dabbcdef5e6b413f96c0030a.jpg" alt="Shop Image">
+                        <h3 class="card-text py-2">Minecraft Account</h3>
+                    </div>
+                </a>
+            </div>
 
             {{-- <div class="col-6 col-lg-3">
                 <a href="#" class="">
@@ -98,21 +137,53 @@
             <div class="col-12 col-lg-8 py-3 d-flex justify-content-center align-content-center">
                 {{-- <h2>About Me</h2> --}}
                 <div class="">
-                    <p>Welcome to <strong> Champa Network</strong> , your ultimate destination for epic Minecraft adventures! Founded in 2024,
+                    <p>Welcome to <strong> Champa Network</strong> , your ultimate destination for epic Minecraft
+                        adventures! Founded in 2024,
                         our server is a vibrant and ever-growing community of players who share a passion for creativity,
                         competition, and collaboration. <br>
                         What We Offer: <br>
-                        - Plots for Creativity: Build your dream creations on your very own plot. Whether you're designing a cozy home or a sprawling castle, our plot system provides the perfect space for your imagination to run wild.
-                        <br>- PvP Battles: Engage in thrilling player-versus-player combat and test your skills against others. Fight for glory, climb the leaderboards, and show everyone what you're made of!
+                        - Plots for Creativity: Build your dream creations on your very own plot. Whether you're designing a
+                        cozy home or a sprawling castle, our plot system provides the perfect space for your imagination to
+                        run wild.
+                        <br>- PvP Battles: Engage in thrilling player-versus-player combat and test your skills against
+                        others. Fight for glory, climb the leaderboards, and show everyone what you're made of!
                     </p>
-                    <a href="#"
+                    <a href="{{ route('about.index') }}"
                         class="border border-1 border-primary rounded rounded-5 p-2 nav-link d-block  text-center">Read
                         more</a>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+    <div id="myToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <img src="{{ asset('assets/img/icon/logo.png') }}"  class="rounded me-2" style="width: 20px" alt="...">
+            <strong class="me-auto">Please note</strong>
+            <small>Just now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body position-relative">
+            Minecraft accounts will soon be available at the shop.
+            <div class="countdown"></div>
+        </div>
+    </div>
+    
 @endsection
 
 @section('js')
+<script>
+    // Initialize and show the toast on button click
+    document.getElementById('showToastBtn').addEventListener('click', function () {
+        const toastElement = document.getElementById('myToast');
+        const toast = new bootstrap.Toast(toastElement, {
+            autohide: true, // Enable auto-hide
+            delay: 5000    // Set delay to 5000ms (5 seconds)
+        });
+        toast.show(); // Show the toast
+    });
+</script>
 @endsection

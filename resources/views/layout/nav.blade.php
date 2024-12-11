@@ -18,7 +18,7 @@
                   <a class="nav-link active fw-bold" href="/">Home</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link fw-bold" href="/">About us</a>
+                  <a class="nav-link fw-bold" href="{{ route('about.index') }}">About us</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link fw-bold" href="#footer">Contact Us</a>
