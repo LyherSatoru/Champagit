@@ -7,9 +7,10 @@ use App\Http\Controllers\Discord\BuyRankController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\shop\ShopController;
 use App\Http\Controllers\about\AboutUsController;
+
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 
 Route::prefix('apps')->group(function () {
