@@ -122,5 +122,13 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+    'providers' => [
+        // Other providers...
+        Jakyeru\Larascord\LarascordServiceProvider::class,
+    ],
+    'aliases' => [
+        // Other aliases...
+        'Larascord' => Jakyeru\Larascord\Facades\Larascord::class,
+    ],
 
 ];
