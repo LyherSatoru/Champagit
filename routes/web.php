@@ -7,7 +7,8 @@ use App\Http\Controllers\Discord\BuyRankController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\shop\ShopController;
 use App\Http\Controllers\about\AboutUsController;
-
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\shop\StoreController;
 
 // update 
 Route::get('/', function () {
@@ -65,4 +66,19 @@ Route::prefix('about-us')->group(function () {
     // Route::get('/receipt/{receipt_uuid}', [ShopController::class, 'receipt'])->name('shop.receipt');
     // Route::get('/receipt/{receipt_uuid}', [ReceiptController::class, 'download'])->name('receipt.download');
 
+});
+
+
+// shop
+Route::prefix('minecraft-store')->middleware('auth')->group(function () {
+    // Route::get('/', [BuyRankController::class, 'index'])->name('dc');
+    Route::resource('/', StoreController::class)->names('minecraft-store');
+});
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 });
