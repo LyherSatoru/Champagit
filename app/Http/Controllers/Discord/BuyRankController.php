@@ -20,39 +20,7 @@ class BuyRankController extends Controller
     }
     public function index()
     {
-        try {
-            $userId = '459154624230719489';
-            $message = 'hello world';
-            $discordToken = 'MTA0MDkwMzA2NDkyNTc3Mzg3NQ.G5kF7p.XPQKJ3sqVTf73ykFAbTBtSgvYvPbgPHItDek5M';
         
-            // Make sure the userId is valid for sending a DM
-            $url = "https://discord.com/api/v10/channels/{$userId}/messages"; // Correct endpoint for DM
-            $response = Http::withHeaders([
-                'Authorization' => "Bot {$discordToken}",
-                'Content-Type' => 'application/json',
-            ])->post($url, [
-                'content' => $message,
-            ]);
-        
-            // Check if the request was successful
-            if ($response->successful()) {
-                \Log::info('Discord API Response:', [
-                    'status' => $response->status(),
-                    'body' => $response->body(),
-                ]);
-                return $response->successful();
-            } else {
-                // Log the error response if not successful
-                \Log::error('Discord API error:', [
-                    'status' => $response->status(),
-                    'body' => $response->body(),
-                ]);
-                return response()->json(['error' => 'Failed to send message.'], 500);
-            }
-        } catch (\Exception $e) {
-            \Log::error('Discord message error: ' . $e->getMessage());
-            return response()->json(['error' => 'An error occurred: ' . $e->getMessage()], 500);
-        }
         
 
     }
