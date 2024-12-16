@@ -5,47 +5,55 @@ namespace App\Http\Controllers\Discord;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-
+use App\Services\DiscordService;
 class BuyRankController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    protected $discordService;
+    protected $discordToken;
+
+    public function __construct(DiscordService $discordService)
+    {
+        $this->discordToken = env('DISCORD_BOT_TOKEN');
+    }
     public function index()
     {
         try {
-            $arrow = '<a:96c94f419fa94bdbbee73dd38813d81f:1313709808708489226>';
-            $webhookUrl = 'https://discord.com/api/webhooks/1313535682118942780/kE2lOz5yZT7HRKIZ1KOf72M1Y1doDIRnJV84PQEyO-z63pcK4IGTCP4un9QqbKQ45kP8'; // Replace with your webhook URL
-            $message = [
-                'content' => '', // The message content
-                'username' => 'Champa Shop',       // Optional: Set bot's name
-                'embeds' => [
-                    [
-                        'title' => 'Receipt CN-001 <a:DT_adiamond:1215221994602237983>', // Optional: Embed title
-                        'description' => $arrow."Username: Lyher\n".$arrow."GameName: LyherGaming99\n".$arrow."Rank: GM\n".$arrow."Price: 99$", // Embed description with new lines
-                        'image' => [
-                            'url' => 'image_url', // Image URL
-                        ],
-                    ],
-                ],
-            ];
-
-            // Send the POST request
-            $response = Http::post($webhookUrl, $message);
-
+            $userId = '459154624230719489';
+            $message = 'hello world';
+            $discordToken = 'MTA0MDkwMzA2NDkyNTc3Mzg3NQ.G5kF7p.XPQKJ3sqVTf73ykFAbTBtSgvYvPbgPHItDek5M';
+        
+            // Make sure the userId is valid for sending a DM
+            $url = "https://discord.com/api/v10/channels/{$userId}/messages"; // Correct endpoint for DM
+            $response = Http::withHeaders([
+                'Authorization' => "Bot {$discordToken}",
+                'Content-Type' => 'application/json',
+            ])->post($url, [
+                'content' => $message,
+            ]);
+        
+            // Check if the request was successful
             if ($response->successful()) {
-                // return response()->json(['message' => 'Message sent successfully']);
-                echo 'successfully';
-
+                \Log::info('Discord API Response:', [
+                    'status' => $response->status(),
+                    'body' => $response->body(),
+                ]);
+                return $response->successful();
             } else {
-                // return response()->json(['error' => 'Failed to send message'], 500);
-                echo 'error message';
-
+                // Log the error response if not successful
+                \Log::error('Discord API error:', [
+                    'status' => $response->status(),
+                    'body' => $response->body(),
+                ]);
+                return response()->json(['error' => 'Failed to send message.'], 500);
             }
-            // echo 'successfully';
         } catch (\Exception $e) {
-            echo "Error: " . $e->getMessage();
+            \Log::error('Discord message error: ' . $e->getMessage());
+            return response()->json(['error' => 'An error occurred: ' . $e->getMessage()], 500);
         }
+        
 
     }
 

@@ -42,7 +42,7 @@
                     </p>
                     <div class="row">
                         <div class="col-12 col-lg-4 m-auto py-5">
-                            <img class="w-100" src="{{ asset('assets/img/shop/qr.jpg') }}" alt="">
+                            <img class="w-100" src="{{ asset('assets/img/shop/aba_naruto.png') }}" alt="">
                         </div>
                     </div>
                     <div>

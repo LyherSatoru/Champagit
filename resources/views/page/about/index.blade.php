@@ -122,9 +122,15 @@
                 </div>
             </div>
             <div class="col-12 col-lg-4 pt-3">
-                <h3 class="fw-bold pb-3 text-light">.</h3>
-                <div class="rounded rounded-5 shadow py-3">
-                    <h4 class="text-center fw-bold">Information</h4>
+                <h3 class="fw-bold pb-3">Server Owner &gt;</h3>
+                <div class="rounded rounded-5 shadow py-3 px-3">
+                    <h4 class="text-center fw-bold">Owner</h4>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-6">
+                            <img class="w-100" src="{{ asset('assets/img/icon/owner.png') }}" alt="">
+                        </div>
+                    </div>
+                    <h5 class="text-center p-1">Su Mey</h5>
                 </div>
             </div>
         </div>
@@ -165,6 +171,49 @@
             </div>
         </div>
     </div>
+
+    {{-- staff  --}}
+
+<div class="container pb-5">
+    <div class="row">
+        <div class="col-6 col-lg-3">
+            <div class="shadow rounded rounded-5">
+                <div class="p-4">
+                    <h4 class="text-center fw-bold p-2">Owner</h4>
+                    <img class="w-100" src="{{ asset('assets/img/icon/owner.png') }}" alt="">
+                    <h5 class="pt-3">Name : Su Mey</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="shadow rounded rounded-5">
+                <div class="p-4">
+                    <h4 class="text-center fw-bold p-2">Admin</h4>
+                    <img class="w-100" src="https://cdn.discordapp.com/avatars/1312970141230694555/0633a38378913d30b3af61493659336e.png?size=4096&ignore=true" alt="">
+                    <h5 class="pt-3">Name : Cipher</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="shadow rounded rounded-5">
+                <div class="p-4">
+                    <h4 class="text-center fw-bold p-2">Moderator</h4>
+                    <img class="w-100" src="https://cdn.discordapp.com/avatars/1058049067122434108/7c3580652897c312fb01fc09f278d535.png?size=4096&ignore=true" alt="">
+                    <h5 class="pt-3">Name : Ly Nith</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3">
+            <div class="shadow rounded rounded-5">
+                <div class="p-4">
+                    <h4 class="text-center fw-bold p-2">Moderator</h4>
+                    <img class="w-100" src="https://cdn.discordapp.com/avatars/459154624230719489/737d3bc75cc68a99d06fb0ab55055285.png?size=4096&ignore=true" alt="">
+                    <h5 class="pt-3">Name : Lyher</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     <!-- Button trigger modal -->

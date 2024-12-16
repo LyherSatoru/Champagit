@@ -23,7 +23,7 @@
                     <a class="nav-link fw-bold {{ request()->is('about*') ? 'active' : '' }}"
                         href="{{ route('about.index') }} ">About us</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link fw-bold {{ request()->is('minecraft-store*') ? 'active' : '' }}"
                         href="{{ route('minecraft-store.index') }} ">Account Store</a>
                 </li>
@@ -49,8 +49,7 @@
                                     </x-responsive-nav-link>
                                 </form>
                             </li>
-                            {{-- <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
+                          
                         </ul>
                     </li>
                 @else
@@ -58,7 +57,7 @@
                         <a class="nav-link fw-bold {{ request()->is('login*') ? 'active' : '' }}"
                             href="{{ route('login') }}">Login</a>
                     </li>
-                @endif
+                @endif --}}
 
             </ul>
         </div>

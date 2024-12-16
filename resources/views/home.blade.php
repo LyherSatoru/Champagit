@@ -83,7 +83,7 @@
                 </a>
             </div>
             <div class="col-6 col-lg-3">
-                <a href="{{ route('minecraft-store.index') }}" class="text-decoration-none"
+                <a class="text-decoration-none" id="showToastBtn" style="cursor: pointer"
                     data-bs-content="Coming Soon">
                     <div class="w-100 rounded rounded-5 overflow-hidden gd position-relative">
                         <img class="w-100 image-our-app" src="https://i.pinimg.com/736x/05/64/3b/05643b74dabbcdef5e6b413f96c0030a.jpg" alt="Shop Image">
