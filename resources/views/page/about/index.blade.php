@@ -272,20 +272,20 @@
 
 
 
-    <script>
-        function fetchInformation(key) {
-            // Fetch the JSON file
-            $.getJSON("{{ asset('assets/json/info.json') }}", function(data) {
-                if (data[key]) {
-                    // Update modal content with HTML
-                    $('#exampleModalLabel').html(data[key].title);
-                    $('#full-info').html(data[key].info);
-                } else {
-                    console.error("Invalid key provided.");
-                }
-            }).fail(function() {
-                console.error("Error fetching JSON.");
-            });
-        }
-    </script>
+<script>
+    function fetchInformation(key) {
+        // Fetch the JSON file using HTTPS
+        $.getJSON("{{ secure_asset('assets/json/info.json') }}", function(data) {
+            if (data[key]) {
+                // Update modal content with HTML
+                $('#exampleModalLabel').html(data[key].title);
+                $('#full-info').html(data[key].info);
+            } else {
+                console.error("Invalid key provided.");
+            }
+        }).fail(function() {
+            console.error("Error fetching JSON.");
+        });
+    }
+</script>
 @endsection
