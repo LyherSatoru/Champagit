@@ -31,15 +31,14 @@
                 <div class="m-auto d-block">
                     <h4 class="p-0" id="rank_name"></h4>
                     <p id="rank_desc">
-                        
-                    
+
+
                     </p>
                 </div>
             </div>
             <div class="col-12">
-                <form class="" action="{{ route('shop.store') }}" method="POST"
-                enctype="multipart/form-data">
-                @csrf
+                <form class="" action="{{ route('shop.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group py-4">
                         <label for="username" class="py-2">Minecraft Username</label>
                         <input type="text" class="form-control" id="username" name="username" required>
@@ -55,8 +54,11 @@
                     <div class="form-group py-3">
                         <label for="rank" class="py-2">Rank</label>
                         <select name="rank" id="rank" class="form-control" onchange="price_check()">
-                            <option value="VIP">VIP 💎</option>
-                            <option value="KING" selected>KING 👑</option>
+                            <option value="VIP">VIP 🌟</option>
+                            <option value="MVP">MVP 🏆</option>
+                            <option value="MVP_PLUS">MVP+ 🔥</option>
+                            <option value="KING">KING 👑</option>
+                            <option value="ULTRA">ULTRA 🚀</option>
                         </select>
 
                     </div>
@@ -69,7 +71,7 @@
                         <input type="file" class="form-control" id="payment" name="payment" required accept="image/*">
                     </div>
                     <div class="w-100 d-flex justify-content-end">
-                    <button type="submit" class="btn btn-primary">Buy Now</button>
+                        <button type="submit" class="btn btn-primary">Buy Now</button>
 
                     </div>
                     <div class="w-100 py-2">
@@ -89,44 +91,98 @@
 @section('js')
     <script>
         function price_check() {
-            var vpi_name = 'Benefits of VIP Rank';
-            var king_name = 'Benefits of KING Rank';
+            // Define rank details
+            var ranks = {
+                'VIP': {
+                    name: 'Benefits of VIP Rank',
+                    description: `
+                    Price : <span class="text-success h3">5$</span>
+                    <br>Exclusive chat colors 💬
+                    <br>Access to VIP-only commands ⚡
+                    <br>Special perks on the server 🎮
+                    <br>Priority access to events 🏆
+                    <br>A cool VIP prefix in your name! ✨
+                `,
+                    image: 'r_vip.png',
+                    price: '5$',
+                    claim_all_kits: false
+                },
+                'MVP': {
+                    name: 'Benefits of MVP Rank',
+                    description: `
+                    Price : <span class="text-success h3">10$</span>
+                    <br>Exclusive chat colors 💬
+                    <br>Access to MVP-only commands ⚡
+                    <br>Special perks on the server 🎮
+                    <br>Priority access to events 🏆
+                    <br>A cool MVP prefix in your name! ✨
+                `,
+                    image: 'r_mvp.png',
+                    price: '10$',
+                    claim_all_kits: false
+                },
+                'MVP_PLUS': {
+                    name: 'Benefits of MVP+ Rank',
+                    description: `
+                    Price : <span class="text-success h3">15$</span>
+                    <br>Exclusive chat colors 💬
+                    <br>Access to MVP+ commands ⚡
+                    <br>Special perks on the server 🎮
+                    <br>Priority access to events 🏆
+                    <br>A cool MVP+ prefix in your name! ✨
+                `,
+                    image: 'r_mvp_p.png',
+                    price: '15$',
+                    claim_all_kits: false
+                },
+                'KING': {
+                    name: 'Benefits of KING Rank',
+                    description: `
+                    Price : <span class="text-success h3">20$</span>
+                    <br>Exclusive chat colors 💬
+                    <br>Access to King-only commands ⚡
+                    <br>Special perks on the server 🎮
+                    <br>Priority access to events 🏆
+                    <br>A cool King prefix in your name! ✨
+                `,
+                    image: 'r_king.png',
+                    price: '20$',
+                    claim_all_kits: false
+                },
+                'ULTRA': {
+                    name: 'Benefits of ULTRA Rank',
+                    description: `
+                    Price : <span class="text-success h3">30$</span>
+                    <br>Exclusive chat colors 💬
+                    <br>Access to Ultra commands ⚡
+                    <br>Special perks on the server 🎮
+                    <br>Priority access to events 🏆
+                    <br>A cool Ultra prefix in your name! ✨
+                    <br>Claim all kits available! 🎁
+                `,
+                    image: 'r_ultra.jpg',
+                    price: '30$',
+                    claim_all_kits: true
+                }
+            };
 
-            var vpi_description = `
-            Price : <span class="text-success h3">5$</span>
-            <br>Exclusive chat colors 💬
-            <br>Access to VIP-only commands ⚡
-            <br>Special perks on the server 🎮
-            <br>Priority access to events 🏆
-            <br>A cool VIP prefix in your name! ✨
-            `;
-            var king_description = `
-            Price : <span class="text-success h3">15$</span>
-            <br>Exclusive chat colors 💬
-            <br>Access to King-only commands ⚡
-            <br>Special perks on the server 🎮
-            <br>Priority access to events 🏆
-            <br>A cool King prefix in your name! ✨
-            `;
-
-
-            // Get the rank value
+            // Get the selected rank value
             var rank = $('#rank').val();
 
+            // Update details based on the selected rank
+            if (ranks[rank]) {
+                var rankData = ranks[rank];
+                $('#rank_img').attr('src', `{{ asset('assets/img/shop/${rankData.image}') }}`);
+                $('#price').val(rankData.price);
+                $('#rank_name').html(rankData.name);
+                $('#rank_desc').html(rankData.description);
 
-            if (rank === 'VIP') {
-                // Change the image source for VIP rank
-                $('#rank_img').attr('src', `{{ asset('assets/img/shop/viprank.png') }}`);
-                $('#price').val('5$');
-                $('#rank_name').html(vpi_name);
-                $('#rank_desc').html(vpi_description);
-            } else {
-                // Change the image source for non-VIP rank
-                $('#rank_img').attr('src', `{{ asset('assets/img/shop/kingrank.png') }}`);
-                // Update price to 15
-                $('#price').val('15$');
-                $('#rank_name').html(king_name);
-                $('#rank_desc').html(king_description);
+                // Handle kit claim logic for ULTRA rank
+                if (rankData.claim_all_kits) {
+                    $('#kit_claim').html('<span class="text-success">You can claim all kits! 🎁</span>');
+                } else {
+                    $('#kit_claim').html('<span class="text-danger">Only specific kits available for this rank.</span>');
+                }
             }
         }
 
