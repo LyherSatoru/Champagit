@@ -189,7 +189,7 @@
             <div class="shadow rounded rounded-5">
                 <div class="p-4">
                     <h4 class="text-center fw-bold p-2">Admin</h4>
-                    <img class="w-100" src="https://cdn.discordapp.com/avatars/1312970141230694555/0633a38378913d30b3af61493659336e.png?size=4096&ignore=true" alt="">
+                    <img class="w-100" src="{{ asset('assets/img/icon/chiper.png') }}" alt="">
                     <h5 class="pt-3">Name : Cipher</h5>
                 </div>
             </div>
@@ -198,7 +198,7 @@
             <div class="shadow rounded rounded-5">
                 <div class="p-4">
                     <h4 class="text-center fw-bold p-2">Moderator</h4>
-                    <img class="w-100" src="https://cdn.discordapp.com/avatars/1058049067122434108/7c3580652897c312fb01fc09f278d535.png?size=4096&ignore=true" alt="">
+                    <img class="w-100" src="{{ asset('assets/img/icon/lijinx.jpg') }}" alt="">
                     <h5 class="pt-3">Name : Ly Nith</h5>
                 </div>
             </div>

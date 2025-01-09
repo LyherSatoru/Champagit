@@ -75,7 +75,7 @@ class ShopController extends Controller
             // Send a message to Discord
             try {
                 $arrow = '<a:96c94f419fa94bdbbee73dd38813d81f:1313709808708489226>';
-                $webhookUrl = 'https://discord.com/api/webhooks/1313535682118942780/kE2lOz5yZT7HRKIZ1KOf72M1Y1doDIRnJV84PQEyO-z63pcK4IGTCP4un9QqbKQ45kP8';
+                $webhookUrl = env('DISCORD_WEBHOOK_URL');
                 $message = [
                     'content' => '',
                     'username' => 'Champa Shop',
