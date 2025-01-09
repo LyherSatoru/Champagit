@@ -197,9 +197,9 @@
         <div class="col-6 col-lg-3">
             <div class="shadow rounded rounded-5">
                 <div class="p-4">
-                    <h4 class="text-center fw-bold p-2">Moderator</h4>
+                    <h4 class="text-center fw-bold p-2">STAFF</h4>
                     <img class="w-100" src="{{ asset('assets/img/icon/lijinx.jpg') }}" alt="">
-                    <h5 class="pt-3">Name : Ly Nith</h5>
+                    <h5 class="pt-3">Name : yutu_friendly</h5>
                 </div>
             </div>
         </div>
