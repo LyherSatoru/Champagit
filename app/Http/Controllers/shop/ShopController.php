@@ -6,18 +6,30 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\shop\ShopModel;
 use Illuminate\Support\Facades\Http;
-
+use Illuminate\Support\Facades\Log;
 class ShopController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(){
+
+    }
+    public function shop(Request $request)
     {
         try {
-            return view('page.shop.rank_shop.index');
-        } catch (\Exception $e) {
+            $rank = $request->query('rank');
 
+            if($rank == 'economy' || $rank == 'plot') {
+                
+                return view('page.shop.rank_shop.index', compact('rank'));
+            }else {
+                return view('home');
+            }
+        } catch (\Exception $e) {
+            // logger('Error during index process: ' . $e->getMessage());
+            Log::error($e->getMessage());
+            return redirect()->back()->with('error', $e->getMessage());
         }
     }
     public function receipt(request $request, $id)
@@ -40,12 +52,14 @@ class ShopController extends Controller
     public function store(Request $request)
     {
         try {
+
             // Validate the request data
             $validatedData = $request->validate([
                 'username' => 'required|string',
                 'Platform' => 'required|string',
                 'rank' => 'required|string',
                 'price' => 'required',
+                'server_check' => 'required',
                 'payment' => 'required|image|mimes:jpeg,png,jpg',
             ]);
 
@@ -59,12 +73,20 @@ class ShopController extends Controller
             $value = $request->price;
             // $value = '10$';
             $cleanedValue = str_replace('$', '', $value);
+            if($validatedData['rank'] == 'PLOT_VIP') {
+                $rank_name = 'VIP';
+            }elseif($validatedData['rank'] == 'PLOT_KING') {
+                $rank_name = 'KING';
+            }else{
+                $rank_name = $validatedData['rank'];
+            }
             // Insert data into the database
             $shop = ShopModel::create([
                 'username' => $validatedData['username'],
                 'game_name' => $validatedData['username'],
                 'platform' => $validatedData['Platform'],
-                'rank' => $validatedData['rank'],
+                'rank' => $rank_name,
+                // 'server_check' => $validatedData['server-check'],
                 'price' => $cleanedValue,
                 'image_url' => $fileName ?? null, // Save only the file name for later reference
             ]);
@@ -85,6 +107,7 @@ class ShopController extends Controller
                             'description' =>
                                 $arrow . " Username: " . $shop->username . "\n" .
                                 $arrow . " Platform: " . $shop->platform . "\n" .
+                                $arrow . " Server : " . $validatedData['server_check'] . "\n" .
                                 $arrow . " Rank: " . $shop->rank . "\n" .
                                 $arrow . " Price: " . $shop->price . "$",
                             'image' => [

@@ -75,13 +75,22 @@
                 <h3 class="fw-bold py-5 pb-4">Our Store &gt;</h3>
             </div>
             <div class="col-6 col-lg-3">
-                <a href="{{ route('shop.index') }}" class="text-decoration-none">
+                <a href="{{ route('shop.rank', ['rank' => 'economy']) }}" class="text-decoration-none">
+                    <div class="w-100 rounded rounded-5 overflow-hidden gd position-relative">
+                        <img class="w-100 image-our-app" src="{{ asset('assets/img/icon/eco_banner.jpg') }}" alt="Shop Image">
+                        <h3 class="card-text py-2">Economy Rank</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-lg-3">
+                <a href="{{ route('shop.rank', ['rank' => 'plot']) }}" class="text-decoration-none">
                     <div class="w-100 rounded rounded-5 overflow-hidden gd position-relative">
                         <img class="w-100 image-our-app" src="{{ asset('assets/img/shop/ps.jpg') }}" alt="Shop Image">
                         <h3 class="card-text py-2">Plot Rank</h3>
                     </div>
                 </a>
             </div>
+            
             <div class="col-6 col-lg-3">
                 <a class="text-decoration-none" id="showToastBtn" style="cursor: pointer"
                     data-bs-content="Coming Soon">

@@ -5,7 +5,7 @@
 @endsection
 @section('container')
     <div class="container pb-5 px-4 p-lg-2">
-        <h3 class="fw-bold py-5 pb-4">Rank Store &gt;</h3>
+        <h3 class="fw-bold py-5 pb-4">Rank Store ({{$rank}}) &gt;</h3>
         <div>
             @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -39,6 +39,7 @@
             <div class="col-12">
                 <form class="" action="{{ route('shop.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="server_check" value="{{$rank}}">
                     <div class="form-group py-4">
                         <label for="username" class="py-2">Minecraft Username</label>
                         <input type="text" class="form-control" id="username" name="username" required>
@@ -54,11 +55,16 @@
                     <div class="form-group py-3">
                         <label for="rank" class="py-2">Rank</label>
                         <select name="rank" id="rank" class="form-control" onchange="price_check()">
-                            <option value="VIP">VIP 🌟</option>
+                            @if($rank == 'economy')
+                            <option value="VIP" selected>VIP 🌟</option>
                             <option value="MVP">MVP 🏆</option>
                             <option value="MVP_PLUS">MVP+ 🔥</option>
                             <option value="KING">KING 👑</option>
                             <option value="ULTRA">ULTRA 🚀</option>
+                        @elseif($rank == 'plot')
+                            <option value="PLOT_VIP" selected>VIP 🌟</option>
+                            <option value="PLOT_KING">KING 👑</option>
+                        @endif
                         </select>
 
                     </div>
@@ -163,6 +169,36 @@
                     image: 'r_ultra.jpg',
                     price: '30$',
                     claim_all_kits: true
+                }
+                ,
+                'PLOT_VIP': {
+                    name: 'Benefits of VIP Rank',
+                    description: `
+                    Price : <span class="text-success h3">5$</span>
+                    <br>Exclusive chat colors 💬
+                    <br>Access to VIP commands ⚡
+                    <br>Special perks on the server 🎮
+                    <br>Priority access to events 🏆
+                    <br>A cool VIP prefix in your name! ✨
+                `,
+                    image: 'viprank.png',
+                    price: '5$',
+                    claim_all_kits: false
+                }
+                ,
+                'PLOT_KING': {
+                    name: 'Benefits of KING Rank',
+                    description: `
+                    Price : <span class="text-success h3">15$</span>
+                    <br>Exclusive chat colors 💬
+                    <br>Access to KING commands ⚡
+                    <br>Special perks on the server 🎮
+                    <br>Priority access to events 🏆
+                    <br>A cool KING prefix in your name! ✨
+                `,
+                    image: 'kingrank.png',
+                    price: '15$',
+                    claim_all_kits: false
                 }
             };
 

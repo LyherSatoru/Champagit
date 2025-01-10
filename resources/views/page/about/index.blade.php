@@ -76,6 +76,7 @@
                             </div>
                         </a>
                     </div>
+                    
                     <div class="col-6">
                         <a class="text-decoration-none" id="showToastBtn" style="cursor: pointer"
                             data-bs-content="Coming Soon">
