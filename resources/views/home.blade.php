@@ -72,9 +72,9 @@
 
         <div class="row ">
             <div class="col-12">
-                <h3 class="fw-bold py-5 pb-4">Our Store &gt;</h3>
+                <h3 class="fw-bold py-5 pb-2">Our Store &gt;</h3>
             </div>
-            <div class="col-6 col-lg-3">
+            <div class="col-6 col-lg-3 my-2">
                 <a href="{{ route('shop.rank', ['rank' => 'economy']) }}" class="text-decoration-none">
                     <div class="w-100 rounded rounded-5 overflow-hidden gd position-relative">
                         <img class="w-100 image-our-app" src="{{ asset('assets/img/icon/eco_banner.jpg') }}" alt="Shop Image">
@@ -82,7 +82,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-6 col-lg-3">
+            <div class="col-6 col-lg-3 my-2">
                 <a href="{{ route('shop.rank', ['rank' => 'plot']) }}" class="text-decoration-none">
                     <div class="w-100 rounded rounded-5 overflow-hidden gd position-relative">
                         <img class="w-100 image-our-app" src="{{ asset('assets/img/shop/ps.jpg') }}" alt="Shop Image">
@@ -91,7 +91,7 @@
                 </a>
             </div>
             
-            <div class="col-6 col-lg-3">
+            <div class="col-6 col-lg-3 my-2">
                 <a class="text-decoration-none" id="showToastBtn" style="cursor: pointer"
                     data-bs-content="Coming Soon">
                     <div class="w-100 rounded rounded-5 overflow-hidden gd position-relative">

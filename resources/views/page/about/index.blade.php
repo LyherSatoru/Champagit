@@ -177,39 +177,39 @@
 
 <div class="container pb-5">
     <div class="row">
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-lg-3 my-2">
             <div class="shadow rounded rounded-5">
                 <div class="p-4">
                     <h4 class="text-center fw-bold p-2">Owner</h4>
                     <img class="w-100" src="{{ asset('assets/img/icon/owner.png') }}" alt="">
-                    <h5 class="pt-3">Name : Su Mey</h5>
+                    <h5 class="pt-3 text-center">Su Mey</h5>
                 </div>
             </div>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-lg-3 my-2">
             <div class="shadow rounded rounded-5">
                 <div class="p-4">
                     <h4 class="text-center fw-bold p-2">Admin</h4>
                     <img class="w-100" src="{{ asset('assets/img/icon/chiper.png') }}" alt="">
-                    <h5 class="pt-3">Name : Cipher</h5>
+                    <h5 class="pt-3 text-center">Cipher</h5>
                 </div>
             </div>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-lg-3 my-2">
             <div class="shadow rounded rounded-5">
                 <div class="p-4">
                     <h4 class="text-center fw-bold p-2">STAFF</h4>
                     <img class="w-100" src="{{ asset('assets/img/icon/lijinx.jpg') }}" alt="">
-                    <h5 class="pt-3">Name : yutu_friendly</h5>
+                    <h5 class="pt-3 text-center">yutu_friendly</h5>
                 </div>
             </div>
         </div>
-        <div class="col-6 col-lg-3">
+        <div class="col-6 col-lg-3 my-2">
             <div class="shadow rounded rounded-5">
                 <div class="p-4">
                     <h4 class="text-center fw-bold p-2">Moderator</h4>
                     <img class="w-100" src="https://cdn.discordapp.com/avatars/459154624230719489/737d3bc75cc68a99d06fb0ab55055285.png?size=4096&ignore=true" alt="">
-                    <h5 class="pt-3">Name : Lyher</h5>
+                    <h5 class="pt-3 text-center">Lyher</h5>
                 </div>
             </div>
         </div>
