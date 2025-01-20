@@ -9,6 +9,7 @@ use App\Http\Controllers\shop\ShopController;
 use App\Http\Controllers\about\AboutUsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\shop\StoreController;
+use App\Http\Controllers\Discord\LiveMessageController;
 
 // update 
 Route::get('/', function () {
@@ -83,3 +84,8 @@ Route::prefix('minecraft-store')->middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 });
+
+// routes/web.php
+Route::post('/send-message', [LiveMessageController::class, 'sendMessage']);
+Route::post('/webhook', [LiveMessageController::class, 'receiveMessage']);
+Route::get('/chat-me', [LiveMessageController::class, 'chat']);
